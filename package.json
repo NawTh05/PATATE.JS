@@ -1,0 +1,23 @@
+{
+  "name": "patate.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NawTh05/PATATE.JS.git"
+  },
+  "author": "Nathan Poirier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NawTh05/PATATE.JS/issues"
+  },
+  "homepage": "https://github.com/NawTh05/PATATE.JS#readme",
+  "dependencies": {
+    "matter-js": "^0.14.2",
+    "p5": "^0.7.3"
+  }
+}
