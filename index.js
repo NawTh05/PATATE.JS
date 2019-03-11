@@ -13,17 +13,18 @@ function preload(){
 
 
 function setup(){
-  const canvas = createCanvas(300,800);
+  const canvas = createCanvas(800,800);
   engine = Engine.create();
   world = engine.world;
-  ground = new Ground(width/2,height,width*2,100);
-  player = new Player(100,height - 100,100,50);
+  Engine.run(engine);
+  ground = new Ground(width/2,height-20,width*2,50);
+  player = new Player(100,height - 400,100,50);
 
 }
 
 function draw(){
   background(87, 101, 116)
-  Matter.Engine.update(engine);
+  //Matter.Engine.update(engine);
   ground.show();
   player.show();
   player.move();
