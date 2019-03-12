@@ -18,11 +18,14 @@ class Player {
     push();
     translate(pos.x, pos.y);
     rotate(angle);
-    fill(255);
+    noStroke()
+    fill(0,0,0,0,100);
     rectMode(CENTER);
     rect(0, 0, this.w, this.h);
+    imageMode(CENTER);
+    image(cat_front, 0, 0, this.w, this.h);
     pop();
-    console.log(this.body.position);
+    //console.log(this.body.position);
   }
 
   move(){
@@ -37,8 +40,8 @@ class Player {
     else {
       this.body.friction = 0.5;
     }
-    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*3/4)) {
-      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.01})
+    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 300*2/4)) {
+      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.02})
     }
   }
 }
