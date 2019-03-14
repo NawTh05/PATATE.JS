@@ -10,6 +10,7 @@ let grassIMG;
 function preload(){
   grassIMG = loadImage('assets/grass.png')
   cat_front = loadImage('assets/cat.png')
+  cat_back = loadImage('assets/cat_back.png')
 }
 
 
@@ -19,7 +20,7 @@ function setup(){
   world = engine.world;
   Engine.run(engine);
   ground = new Ground(width/2,height-20,width*2,50);
-  player = new Player(100,height - 400,100,80);
+  player = new Player(100,height/2,100,80);
 
 }
 
