@@ -1,5 +1,6 @@
 
 var orientation = "R";
+var laser = false;
 
 class Player {
   constructor(x,y,w,h){
@@ -23,13 +24,20 @@ class Player {
     rectMode(CENTER);
     rect(0, 0, this.w, this.h);
     imageMode(CENTER);
-    if (orientation == "R") {
+    if ((orientation == "R") && (laser == false)) {
       image(cat_front, 0, 7, this.w, this.h);
     }
-    if (orientation == "L") {
+    if ((orientation == "L") && (laser == false)) {
       image(cat_back, 0, 7, this.w, this.h);
     }
+    if ((orientation == "R") && (laser == true)) {
+      image(cat_laser, 0, 7, this.w, this.h);
+    }
+    if ((orientation == "L") && (laser == true)) {
+      image(cat_back_laser, 0, 7, this.w, this.h);
+    }
   }
+
 
   move(){
     if (keyIsDown(RIGHT_ARROW)) {
@@ -47,6 +55,12 @@ class Player {
     }
     if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*8/10)) {
       Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03})
+    }
+    if (keyIsDown(32)) {
+      laser = true
+    }
+    else {
+      laser = false;
     }
   }
 }

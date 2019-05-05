@@ -8,9 +8,12 @@ let world, engine;
 let grassIMG;
 
 function preload(){
-  grassIMG = loadImage('assets/grass.png')
-  cat_front = loadImage('assets/cat.png')
-  cat_back = loadImage('assets/cat_back.png')
+  grassIMG = loadImage('assets/grass.png');
+  cat_front = loadImage('assets/cat.png');
+  cat_back = loadImage('assets/cat_back.png');
+  laserIMG = loadImage('assets/laser.png');
+  cat_laser = loadImage('assets/cat_laser.png');
+  cat_back_laser = loadImage('assets/cat_back_laser.png');
 }
 
 
