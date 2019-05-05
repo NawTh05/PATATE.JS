@@ -5,7 +5,7 @@ class Player {
     var options = {
       friction: 0.5
     }
-    this.body = Matter.Bodies.rectangle(x, y, w, h,options);
+    this.body = Matter.Bodies.rectangle(x, y, w, h, options);
     Matter.World.add(world, this.body);
     this.w = w;
     this.h = h;
@@ -37,7 +37,7 @@ class Player {
     else {
       this.body.friction = 0.5;
     }
-    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*3/4)) {
+    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*8/10)) {
       Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.01})
     }
   }

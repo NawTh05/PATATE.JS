@@ -17,7 +17,8 @@ function setup(){
   engine = Engine.create();
   world = engine.world;
   Engine.run(engine);
-  ground = new Ground(width/2,height-20,width*2,50);
+  groundArray = [];
+  ground = new Ground(width/2,height-20,width,50);
   player = new Player(100,height - 400,100,50);
 
 }
