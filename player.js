@@ -1,4 +1,5 @@
 
+var orientation = "R";
 
 class Player {
   constructor(x,y,w,h){
@@ -22,33 +23,30 @@ class Player {
     rectMode(CENTER);
     rect(0, 0, this.w, this.h);
     imageMode(CENTER);
-    image(cat_front, 0, 7, this.w, this.h);
-    //console.log(this.body.position);
+    if (orientation == "R") {
+      image(cat_front, 0, 7, this.w, this.h);
+    }
+    if (orientation == "L") {
+      image(cat_back, 0, 7, this.w, this.h);
+    }
   }
 
   move(){
     if (keyIsDown(RIGHT_ARROW)) {
       this.body.friction = 0;
       Matter.Body.applyForce(this.body,this.body.position,{x:0.01,y:0.0});
-      fill(87, 101, 116);
-      image(cat_front, 0, 7, this.w, this.h);
+      orientation = "R";
     }
     else if (keyIsDown(LEFT_ARROW)) {
       this.body.friction = 0;
       Matter.Body.applyForce(this.body,this.body.position,{x:-0.01,y:0.0})
-      fill(87, 101, 116);
-      image(cat_back, 0, 7, this.w, this.h);
+      orientation = "L";
     }
     else {
-      this.body.friction = 0.5;
+      this.body.friction = 0.1;
     }
-<<<<<<< HEAD
     if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*8/10)) {
-      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.01})
-=======
-    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 300*2/4)) {
-      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.02})
->>>>>>> a6e0f51b4c65617a3cb08d622aef9293ca7c0e6b
+      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03})
     }
   }
 }
