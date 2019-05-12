@@ -1,8 +1,15 @@
 
-
 class Laser {
-  constructor(x,y,w,h){
-
+  constructor(x,y,w,h,v){
+    var options = {
+      isSensor: true,
+      friction: 0
+    }
+    this.body = Matter.Bodies.rectangle(x, y, w, h, options);
+    Matter.World.add(world, this.body);
+    this.w = w;
+    this.h = h;
+    Matter.Body.applyForce(this.body,this.body.position,{x:v,y:0.0});
   }
 
   show(){
