@@ -2,9 +2,11 @@
   "name": "patate.js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "package-win": "electron-packager . PATATE.JS --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"PATATE.JS\"",
+    "package-linux": "electron-packager . PATATE.JS --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,8 @@
   "dependencies": {
     "matter-js": "^0.14.2",
     "p5": "^0.7.3"
+  },
+  "devDependencies": {
+    "electron": "^5.0.1"
   }
 }

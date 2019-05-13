@@ -57,7 +57,9 @@ class Player {
     else {
       this.body.friction = 0.1;
     }
-    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > 800*8/10)) {
+    //Maximum a finir *****************
+    var maximum = this.body.position.y - 100;
+    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > maximum)) {
       Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03});
     }
     if (keyIsDown(32)) {

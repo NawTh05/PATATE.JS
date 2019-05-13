@@ -16,7 +16,7 @@ function preload(){
 }
 
 function setup(){
-  const canvas = createCanvas(800,800);
+  const canvas = createCanvas(840,800);
   engine = Engine.create();
   world = engine.world;
   gravity = world.gravity;
@@ -26,17 +26,19 @@ function setup(){
   ground = new Ground(width/2,height-20,width,50);
   player = new Player(100,height-100,100,100);
   red_laser = new Laser(200,height-100,30,5,0.005);
-  world_bod = new World_bod(0,height/2.2,7000,800);
+  paysage = new Background(0,height/2.2,7000,800);
+  boite = new Obstacles(300,height-70,100,50)
 }
 
 function draw(){
   background(87, 101, 116)
   //Matter.Engine.update(engine);
-  world_bod.show();
+  paysage.show();
   ground.show();
   player.show();
   player.move();
   red_laser.show();
+  boite.show();
   laser_shoot(player.get_laser_state(), player.get_orientation());
 }
 
