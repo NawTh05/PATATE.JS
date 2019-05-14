@@ -52,3 +52,6 @@ function laser_shoot(laser_state, orientation){
     }
   }
 }
+
+// to remove a Body
+// this.matter.world.remove(body);

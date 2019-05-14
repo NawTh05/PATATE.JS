@@ -1,6 +1,7 @@
 
 var orientation = "R";
 var laser = false;
+var canJump = true;
 
 class Player {
   constructor(x,y,w,h){
@@ -43,6 +44,19 @@ class Player {
   }
 
 
+  jump(){
+    if (canJump == true){
+      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03});
+    }
+    if (this.body.velocity.y < -7){
+      canJump = false;
+    }
+    if ((this.body.velocity.y < 0.0001) && (this.body.velocity.y > -0.0001)){
+      canJump = true;
+    }
+  }
+
+
   move(){
     if (keyIsDown(RIGHT_ARROW)) {
       this.body.friction = 0;
@@ -57,10 +71,8 @@ class Player {
     else {
       this.body.friction = 0.1;
     }
-    //Maximum a finir *****************
-    var maximum = this.body.position.y - 100;
-    if ((keyIsDown(UP_ARROW)) && (this.body.position.y > maximum)) {
-      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03});
+    if (keyIsDown(UP_ARROW)) {
+      this.jump();
     }
     if (keyIsDown(32)) {
       laser = true;
@@ -70,6 +82,8 @@ class Player {
     }
   }
 
+
+// getting the states of the variables
   get_laser_state(){
     return laser;
   }
