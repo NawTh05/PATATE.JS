@@ -39,16 +39,16 @@ class Player {
       image(cat_back_laser, 0, 7, this.w, this.h);
     }
     //gravity
-    Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:(this.body.mass * 0.001)});
+    Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:(this.body.mass * 0.003)});
     pop();
   }
 
 
   jump(){
     if (canJump == true){
-      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.03});
+      Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:-0.1});
     }
-    if (this.body.velocity.y < -7){
+    if (this.body.velocity.y < -11){
       canJump = false;
     }
     if ((this.body.velocity.y < 0.0001) && (this.body.velocity.y > -0.0001)){

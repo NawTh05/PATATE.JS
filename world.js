@@ -30,7 +30,6 @@ class Background {
 class Obstacles {
   constructor(x,y,w,h){
     var options = {
-      isStatic: true
     }
     this.body = Matter.Bodies.rectangle(x, y, w, h, options);
     Matter.World.add(world, this.body);
@@ -49,6 +48,8 @@ class Obstacles {
     rect(0, 0, this.w, this.h);
     //imageMode(CENTER);
     //image(backgroundIMG, 0, 0, this.w, this.h);
+    //gravity
+    Matter.Body.applyForce(this.body,this.body.position,{x:0.0,y:(this.body.mass * 0.001)});
     pop();
   }
 }
