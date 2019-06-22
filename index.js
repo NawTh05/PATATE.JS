@@ -1,8 +1,10 @@
 
 function preload() {
 	catIMG = loadImage('assets/cat.png');
+	catLaserIMG = loadImage('assets/cat_laser.png');
 	catBackIMG = loadImage('assets/cat_back.png');
-	backgroundIMG = loadImage('assets/Background.png');
+	catBackLaserIMG = loadImage('assets/cat_back_laser.png');
+	backgroundIMG = loadImage('assets/BackgroundCrop.png');
 }
 
 

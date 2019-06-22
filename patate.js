@@ -1,9 +1,9 @@
 
 class Patate {
 	constructor() {
-		this.r = 50;
+		this.r = 70;
 		this.x = 50;
-		this.ground = (height - this.r) - 45;
+		this.ground = (height - this.r) - 50;
 		this.y = this.ground;
 		this.vx = 0;
 		this.vy = 0;
@@ -13,14 +13,21 @@ class Patate {
 		this.friction = 0.2;
 		this.direction = 'right';
 		this.patate = image(catIMG, this.x, this.y, this.r, this.r);
+		this.laser = false;
 	}
 
 	show() {
-		if (this.direction == 'right') {
+		if (this.direction == 'right' && this.laser == false) {
 			this.patate = image(catIMG, this.x, this.y, this.r, this.r);
 		}
-		if (this.direction == 'left') {
+		if (this.direction == 'left' && this.laser == false) {
 			this.patate = image(catBackIMG, this.x, this.y, this.r, this.r);
+		}
+		if (this.direction == 'right' && this.laser == true) {
+			this.patate = image(catLaserIMG, this.x, this.y, this.r, this.r);
+		}
+		if (this.direction == 'left' && this.laser == true) {
+			this.patate = image(catBackLaserIMG, this.x, this.y, this.r, this.r);
 		}
 	}
 
@@ -64,14 +71,24 @@ class Patate {
 		if (keyIsDown(38) && this.y > (this.ground - 50)) {
 			patate.jump();
 		}
-		else if (keyIsDown(37)) {
+		if (keyIsDown(37)) {
 			patate.move_left();
 			this.direction = 'left';
 		}
-		else if (keyIsDown(39)) {
+		if (keyIsDown(39)) {
 			patate.move_right();
 			this.direction = 'right';
 		}
+		if (keyIsDown(32)) {
+			this.laser = true;
+		}
+		else {
+			this.laser = false;
+		}
+	}
+
+	getLaserState() {
+		return this.laser;
 	}
 
 	move_left() {
