@@ -65,7 +65,7 @@ class Patate {
 
 		//window constraints
 		this.y = constrain(this.y, 0, this.ground, height);
-		this.x = constrain(this.x, 0, this.x + this.r, width);
+		this.x = constrain(this.x, 0, width - this.r);
 		
 		//key handling
 		if (keyIsDown(38) && this.y > (this.ground - 50)) {
@@ -89,6 +89,18 @@ class Patate {
 
 	getLaserState() {
 		return this.laser;
+	}
+
+	getX() {
+		return this.x;
+	}
+
+	getY() {
+		return this.y;
+	}
+
+	getDir() {
+		return this.direction;
 	}
 
 	move_left() {
